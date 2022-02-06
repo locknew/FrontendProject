@@ -1,0 +1,124 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+
+.container {
+  background: rgb(48, 47, 46);
+  font-family: 'Open Sans', sans-serif;
+}
+
+.login {
+  width: 400px;
+  margin: 16px auto;
+  font-size: 16px;
+  margin-top: 15%;
+}
+
+
+.login-header,
+.login p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+
+
+.login-header {
+  background: rgb(23, 23, 24);
+  padding: 20px;
+  font-size: 1.4em;
+  font-weight: normal;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.login-container {
+  background: #ebebeb;
+  padding: 12px;
+}
+
+
+.login p {
+  padding: 12px;
+}
+
+.login input {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  border-width: 1px;
+  border-style: solid;
+  padding: 16px;
+  outline: 0;
+  font-family: inherit;
+  font-size: 0.95em;
+}
+
+.login input[type="Username"],
+.login input[type="password"] {
+  background: #fff;
+  border-color: #bbb;
+  color: #555;
+}
+
+
+.login input[type="email"]:focus,
+.login input[type="password"]:focus {
+  border-color: #888;
+}
+
+.login input[type="submit"] {
+  background: rgb(23, 23, 24);
+  border-color: transparent;
+  color: #fff;
+  cursor: pointer;
+}
+
+.login input[type="submit"]:hover {
+  background: rgb(37, 37, 37);
+}
+
+
+.login input[type="submit"]:focus {
+  border-color: rgb(37, 37, 37);
+}
+
+/*---------------------------------------------------------------------kitchen ui---------------------------------------------------------------------------------*/
+
+
+.container-fluid{
+    margin-top: 1em;
+    width: 100%;
+    padding: 1vw;
+    background-color:rgb(48, 47, 46);
+    border: 0.25vw solid white;
+    border-radius: 1vw;
+}
+
+.logo{
+    color: white;
+    letter-spacing: 1vw;
+    font-size: 2vw;
+    width: fit-content;
+}
+
+.Listbar{
+    background-color: #ebebeb;
+    margin-top: 2vw;
+    border-radius: 1vw;
+    font-size:  25px;
+    padding-left: 30px;    
+    font-family: 'Annie Use Your Telescope';
+}
+
+.column{
+    float: left;
+    width: 25%;
+    height: 300px;
+    background: rgb(255, 255, 255);
+    border: 0.25vw solid black;
+    border-radius: 1vw;
+    padding: 20px;
+    margin: 20px;
+    color: black;
+    font-family: 'Annie Use Your Telescope';
+}
