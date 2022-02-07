@@ -4,6 +4,9 @@
 }
 h1, #number, #sel-number, li{
     font-size: 3vw;
+    font-family: 'Annie Use Your Telescope';
+}
+h1{
     font-family: 'Amiko';
 }
 
@@ -61,12 +64,15 @@ a.nav-link, #search, #submit, #checkOut{
     font-size: 2.75vw;
     font-family: 'Annie Use Your Telescope';
 }
-#search, #submit, #checkOut{
+#search, #submit, #checkOut, #cancel{
     font-size: 2vw;
     color: white;
 }
 #checkOut:hover, #search:hover, #submit:hover{
     text-shadow: 4px 4px 8px white;
+}
+#cancel:hover{
+    text-shadow: 4px 4px 8px red;
 }
 #search{
     border-right: 0.25vw solid white;
@@ -95,7 +101,7 @@ div.scroll{
 }
 section h2, h5{
     border-radius: 1vw;
-    padding-left: 2vw;
+    margin-left: 2vw;
     font-family: 'Annie Use Your Telescope';
     font-size: 3.5vw;
     color: white;
@@ -118,6 +124,12 @@ div[role=button] h2{
 }
 .price {
     text-align: right;
+}
+h2.qt{
+    color: black;
+    text-align: center;
+    background-color: white;
+    border-radius: 10vw;
 }
 
 
@@ -161,4 +173,27 @@ div[role=button] h2{
 .orderList .row h2{
     font-size: 2.5vw;
 }
-
+table{
+    margin-bottom: 2vw;
+}
+th{
+    padding-left: 2vw;
+    color: black;
+    font-size: 2vw;
+}
+th:nth-child(1){
+    color: white;
+}
+/*Footer*/
+footer {
+    margin-top: 3vw;
+    height:fit-content
+}
+footer div li i{
+    font-size: 2.5vw;
+}
+div p{
+    font-size: 2vw;
+    font-family: 'Annie Use Your Telescope';
+    margin: 0%;
+}
