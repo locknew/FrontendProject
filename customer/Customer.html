@@ -17,8 +17,43 @@
       crossorigin="anonymous"
     ></script>
     
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body class='container'>
+    <!--modal-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="exampleModalLabel">Food name</h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                <div>
+                    <label for="recipient-name" class="col-form-label">Description:</label>
+                    <h3>It's finger licking good!</h3>
+                </div>
+                <div class="form-group">
+                    <label for="message-text" class="col-form-label">Special request:</label>
+                    <textarea class="form-control" id="message-text">-</textarea>
+                </div>
+                </form>
+                
+                <h2><button class="order-qt-add">+</button>Qt.<button class="order-qt-sub">-</button></h2>
+            
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Add to order</button>
+            </div>
+            </div>
+        </div>
+    </div>
+    <!--content-->
     <div style="margin: 0%;" class = "container-fluid row">
         <div class="col">
             <h1 id="logo">BLT</h1>
@@ -68,7 +103,7 @@
                 </form>
                 <section id="Appetizer">
                     <h2>Appetizer</h2>
-                    <div class = "row" role="button">
+                    <div class = "row mod" role="button" data-toggle="modal" data-target="#exampleModal">
                         <div class ="food col">
                             <h2>Caesar Salad</h2>
                         </div>
@@ -85,7 +120,7 @@
                         </div>
                         
                     </div>
-                    <div class = "row" role="button">
+                    <div class = "row mod" role="button" data-toggle="modal" data-target="#exampleModal">
                         <div class ="food col">
                             <h2>Chicken nugget</h2>
                         </div>
@@ -96,7 +131,7 @@
                             <h5>It's finger licking good!</h5>
                         </div>    
                     </div>
-                    <div class = "row" role="button">
+                    <div class = "row mod" role="button" data-toggle="modal" data-target="#exampleModal">
                         <div class ="food col">
                             <h2>California roll</h2>
                         </div>
@@ -107,7 +142,7 @@
                             <h5>A sushi roll with apple...weird right?</h5>
                         </div>    
                     </div>
-                    <div class = "row" role="button">
+                    <div class = "row mod" role="button" data-toggle="modal" data-target="#exampleModal">
                         <div class ="food col">
                             <h2>Fish 'n chip</h2>
                         </div>
@@ -122,7 +157,7 @@
                 </section>
                 <section id="MainDish">
                     <h2>Main Dish</h2>
-                    <div class = "row" role="button">
+                    <div class = "row mod" role="button" data-toggle="modal" data-target="#exampleModal">
                         <div class ="food col">
                             <h2>Porkchop</h2>
                         </div>
@@ -138,7 +173,7 @@
                             </div>    
                         </div>
                     </div>
-                    <div class = "row" role="button">
+                    <div class = "row mod" role="button" data-toggle="modal" data-target="#exampleModal">
                         <div class ="food col">
                             <h2>food</h2>
                         </div>
@@ -149,7 +184,7 @@
                             <h5>description</h5>
                         </div>    
                     </div>
-                    <div class = "row" role="button">
+                    <div class = "row mod" role="button" data-toggle="modal" data-target="#exampleModal">
                         <div class ="food col">
                             <h2>food</h2>
                         </div>
@@ -160,7 +195,7 @@
                             <h5>description</h5>
                         </div>    
                     </div>
-                    <div class = "row" role="button">
+                    <div class = "row mod" role="button" data-toggle="modal" data-target="#exampleModal">
                         <div class ="food col">
                             <h2>food</h2>
                         </div>
@@ -174,7 +209,7 @@
                 </section>
                 <section id="Dessert">
                     <h2>Dessert</h2>
-                    <div class = "row" role="button">
+                    <div class = "row mod" role="button" data-toggle="modal" data-target="#exampleModal">
                         <div class ="food col">
                             <h2>food</h2>
                         </div>
@@ -185,7 +220,7 @@
                             <h5>description</h5>
                         </div>    
                     </div>
-                    <div class = "row" role="button">
+                    <div class = "row mod" role="button" data-toggle="modal" data-target="#exampleModal">
                         <div class ="food col">
                             <h2>food</h2>
                         </div>
@@ -196,7 +231,7 @@
                             <h5>description</h5>
                         </div>    
                     </div>
-                    <div class = "row" role="button">
+                    <div class = "row mod" role="button" data-toggle="modal" data-target="#exampleModal">
                         <div class ="food col">
                             <h2>food</h2>
                         </div>
@@ -209,7 +244,7 @@
                 </section>
                 <section id="Drink">
                     <h2>Drink</h2>
-                    <div class = "row" role="button">
+                    <div class = "row mod" role="button" data-toggle="modal" data-target="#exampleModal">
                         <div class ="food col">
                             <h2>food</h2>
                         </div>
@@ -220,7 +255,7 @@
                             <h5>description</h5>
                         </div>    
                     </div>
-                    <div class = "row" role="button">
+                    <div class = "row mod" role="button" data-toggle="modal" data-target="#exampleModal">
                         <div class ="food col">
                             <h2>food</h2>
                         </div>
@@ -231,7 +266,7 @@
                             <h5>description</h5>
                         </div>    
                     </div>
-                    <div class = "row" role="button">
+                    <div class = "row mod" role="button" data-toggle="modal" data-target="#exampleModal">
                         <div class ="food col">
                             <h2>food</h2>
                         </div>
@@ -372,6 +407,13 @@
           <p style="color:#8f8f8f;">© Copyright 2021 BLT</p>
         </div>
       </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script>
+        $(".mod").click(function(){
+            $('.modal').modal('show');
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
 </body>
 </html>

@@ -107,7 +107,7 @@ section h2, h5{
     color: white;
     font-weight: bold;
 }
-div h5{
+div[role="button"] h5{
     padding-left: 7vw;
     font-size: 2vw;
 }
@@ -196,4 +196,26 @@ div p{
     font-size: 2vw;
     font-family: 'Annie Use Your Telescope';
     margin: 0%;
+}
+/*Modal*/
+#exampleModal{
+    font-family: 'Annie Use Your Telescope';
+}
+.modal-body h3{
+    color: black;
+    font-size: 1rem;
+    padding-left: 2vw;
+    width: fit-content;
+}
+.modal-body h2{
+    color: black;
+    text-align: center;
+    margin-top: 1vw;
+}
+h2 .order-qt-add,h2 .order-qt-sub{
+    margin: 0 1vw 0 1vw;
+    border-radius: 5vw;
+}
+h2.modal-title{
+    border-bottom: 1px solid;
 }
