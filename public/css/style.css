@@ -84,7 +84,13 @@ input.search{
     width:15vw;
     height:3vw;
 }
-
+#searchBar{
+    font-family: 'Annie Use Your Telescope';
+    border-radius: 0.75vw;
+}
+.form-inline{
+    margin-top: 0.5vw;
+}
 /*Food list*/
 div.scroll{
     padding: 1.5vw;
@@ -125,12 +131,6 @@ div[role=button] h2{
 .price {
     text-align: right;
 }
-h2.qt{
-    color: black;
-    text-align: center;
-    background-color: white;
-    border-radius: 10vw;
-}
 
 
 /*Scroll bar*/
@@ -160,10 +160,19 @@ h2.qt{
     text-align: center;
     margin-top: 2vw;
 }
+.foodOr, .deleteOrder, .request{
+    font-family: 'Annie Use Your Telescope';
+    padding: 0;
+    text-align: left;
+}
+.deleteOrder h2{
+    background-color: red;
+    border-radius: 24px;
+    text-align: center;
+}
 .orderList{
     padding-left: 3vw;
-    margin-top: 3vw;
-    border-bottom: 0.25vw solid white;
+    padding-top: 1.5vw;
     border-top: 0.25vw solid white;
 }
 .orderList h1, .orderList div.row{
@@ -196,6 +205,11 @@ div p{
     font-size: 2vw;
     font-family: 'Annie Use Your Telescope';
     margin: 0%;
+}
+h3.qt{
+    color: white;
+    text-align: center;
+    border-radius: 10vw;
 }
 /*Modal*/
 #exampleModal{
