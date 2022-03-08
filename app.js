@@ -12,6 +12,11 @@ app.use(express.static(__dirname + './public/script.js'));
 app.get("/", function(req,res){
     res.render('list.ejs'); 
 })
+
+app.get("/kitchen", function(req,res){
+    res.render('kitchen.ejs'); 
+})
+
 app.listen('3000', function(){
     console.log("server start at port 3000")
 })
