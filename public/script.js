@@ -1,5 +1,7 @@
-
-var foodlist = [];
+/*const { application } = require("express");
+const { json } = require("express/lib/response");
+*/
+var foodList = [];
 var quanti = document.getElementById("foodQt").children[1].innerText;
 var Fname, request, qt;
 
@@ -7,6 +9,9 @@ $(".mod").click(function(){
     $('.modal').modal('show');
 });
 
+function getFoodList(){
+    return foodList;
+}
 function showModal(foodId){
     quanti = 0;
     document.getElementById("message-text").value = "";
@@ -33,17 +38,28 @@ function substract(){
 function closeMod(){
     $('.modal').modal('hide');
 }
-function submit(){
+async function submit(){
+        let tableNum = document.getElementById('sel-number').value;
     if(document.getElementById("foodQt").children[1].innerText != 0){
-       Fname = document.getElementById("modLabel").innerText;
-    request = document.getElementById("message-text").value;
-    qt = document.getElementById("foodQt").children[1].innerText;
-    foodlist.push([Fname, request, qt])
-    console.log(Fname, request, qt) 
+        Fname = document.getElementById("modLabel").innerText;
+        request = document.getElementById("message-text").value;
+        qt = document.getElementById("foodQt").children[1].innerText;
+        foodList.push([tableNum, Fname, request, qt])
+        return foodList
     }
-    for(let i = 0; i < foodlist.length; i++){
-        console.log(foodlist[i]);
+    const result = await fetch('/',{
+        method:'POST',
+        headers:{
+            'Content-Type':'application/json'
+        },
+        body: JSON.stringify({
+            foodList
+        })
+    }).then((res)=> res.json())
+    for(let i = 0; i < foodList.length; i++){
+        console.log(foodList[i]);
     }
+
     $('.modal').modal('hide');
 }
 
@@ -63,4 +79,3 @@ function searchFood(){
         }
     }
 }
-
