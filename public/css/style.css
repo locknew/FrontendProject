@@ -1,0 +1,235 @@
+.container{
+    padding: 3% 5%;
+    background-color: rgb(48, 47, 46);
+}
+h1, #number, #sel-number, li{
+    font-size: 3vw;
+    font-family: 'Annie Use Your Telescope';
+}
+h1{
+    font-family: 'Amiko';
+}
+
+label#number{
+    color: white;
+}
+.container-fluid{
+    padding: 2vw;
+    background-color:rgb(48, 47, 46);
+    border-radius: 2vw;
+    border: 0.25vw solid white;
+}
+.container-fluid h1{
+    font-weight: bold;
+    letter-spacing: 0.5vw;
+
+}
+#logo{
+    color: white;
+    letter-spacing: 2.5vw;
+    font-size: 5vw;
+    width: fit-content;
+}
+#sel-number{
+    background-color: rgb(48, 47, 46);
+    font-size: 3vw;
+    color: white;
+}
+
+.menu{
+    margin-top: 5vw;
+    padding: 1.5vw 1vw 2.5vw 1.5vw;
+    box-shadow: 2px 3px 6px 0px;
+    background-color: darkred;
+    
+}
+ul{
+    list-style-type: none;
+}
+li{
+    margin-left: 1.5vw;
+}
+
+/*Navbar*/
+
+.navbar, .orderTitle{
+    margin-top: 3vw;
+    background-color: white;
+    width: auto;
+    height: fit-content;
+    border-radius: 1.5vw;
+    border: 1vw solid black;
+}
+a.nav-link, #search, #submit, #checkOut{
+    font-size: 2.75vw;
+    font-family: 'Annie Use Your Telescope';
+}
+#search, #submit, #checkOut, #cancel{
+    font-size: 2vw;
+    color: white;
+}
+#checkOut:hover, #search:hover, #submit:hover{
+    text-shadow: 4px 4px 8px white;
+}
+#cancel:hover{
+    text-shadow: 4px 4px 8px red;
+}
+#search{
+    border-right: 0.25vw solid white;
+}
+.my-2{
+    width: 10%;
+}
+input.search{
+    width:15vw;
+    height:3vw;
+}
+#searchBar{
+    font-family: 'Annie Use Your Telescope';
+    border-radius: 0.75vw;
+    font-size: 2vw;
+}
+.form-inline{
+    margin-top: 0.5vw;
+}
+/*Food list*/
+div.scroll{
+    padding: 1.5vw;
+    padding-right: 3.5vw;
+    background-color: black;
+    width: auto;
+    height: 70vw;
+    overflow: auto;
+    border-radius: 1.5vw;
+}
+.food.col{
+    padding-left: 6vw;
+    font-size: 2vw;
+}
+section h2, h5{
+    border-radius: 1vw;
+    margin-left: 2vw;
+    font-family: 'Annie Use Your Telescope';
+    font-size: calc(1.325rem + 1vw);
+    color: white;
+    font-weight: bold;
+}
+div[role="button"] h5{
+    padding-left: 7vw;
+    font-size: calc(1rem + .5vw);
+}
+section{
+    margin-top: 4.5vw;
+    border-top: 0.25vw solid white;
+    border-bottom: 0.25vw solid white;
+}
+div[role=button]{
+    margin-bottom: 0.75vw;
+}
+div[role=button] h2{
+    font-size: calc(1.35rem + .7vw);
+}
+.price {
+    text-align: right;
+}
+
+
+/*Scroll bar*/
+    /* width */
+    ::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: rgb(48, 47, 46); 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: white; 
+  }
+
+/*order list*/
+.orderTitle h1{
+    font-family: 'Annie Use Your Telescope';
+    text-align: center;
+    margin-top: 2vw;
+}
+.foodOr, .deleteOrder, .request{
+    font-family: 'Annie Use Your Telescope';
+    padding: 0;
+    text-align: left;
+}
+.deleteOrder h2{
+    background-color: red;
+    border-radius: 24px;
+    text-align: center;
+}
+.orderList{
+    padding-left: 3vw;
+    padding-top: 1.5vw;
+    border-top: 0.25vw solid white;
+}
+.orderList h1, .orderList div.row{
+    font-family: 'Annie Use Your Telescope';
+    color: white;
+}
+.orderList .row h2{
+    font-size: calc(1.325rem + 1vw);
+}
+table{
+    margin-bottom: 2vw;
+}
+th{
+    padding-left: 2vw;
+    color: black;
+    font-size: calc(1rem + 0.7vw);
+}
+th:nth-child(1){
+    color: white;
+}
+/*Footer*/
+footer {
+    margin-top: 3vw;
+    height:fit-content
+}
+footer div li i{
+    font-size: 2.5vw;
+}
+div p{
+    font-family: 'Annie Use Your Telescope';
+    margin: 0%;
+}
+h3.qt{
+    color: white;
+    text-align: center;
+    border-radius: 10vw;
+}
+/*Modal*/
+#exampleModal{
+    font-family: 'Annie Use Your Telescope';
+}
+.modal-body h3{
+    color: black;
+    font-size: 1rem;
+    padding-left: 2vw;
+    width: fit-content;
+}
+.modal-body h2{
+    color: black;
+    text-align: center;
+    margin-top: 1vw;
+}
+h2 .order-qt-add,h2 .order-qt-sub{
+    margin: 0 1vw 0 1vw;
+    border-radius: 5vw;
+}
+h2.modal-title{
+    border-bottom: 1px solid;
+}
