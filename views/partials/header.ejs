@@ -16,7 +16,7 @@
       src="https://kit.fontawesome.com/752c6ea0dd.js"
       crossorigin="anonymous"
     ></script>
-    
+    <script src="jquery-3.5.1.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body class='container'>
@@ -25,26 +25,26 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
             <div class="modal-header">
-                <h2 class="modal-title" id="modLabel">Food name</h2>
+                <h2 class="modal-title" name="Fname" id="modLabel">Food name</h2>
             </div>
             <div class="modal-body">
                 <form>
                 <div>
-                    <label for="recipient-name" class="col-form-label">Description:</label>
+                    <label for="recipient-name" name="Fdesc" class="col-form-label">Description:</label>
                     <h3 id="foodDescript"></h3>
                 </div>
                 <div class="form-group">
-                    <label for="message-text" class="col-form-label">Special request:</label>
+                    <label for="message-text" name="Freq" class="col-form-label">Special request:</label>
                     <textarea class="form-control" id="message-text"></textarea>
                 </div>
                 </form>
                 
-                <h2 id= "foodQt"><button id="sub" onclick="substract()" class="order-qt-sub">-</button><p style="display: inline;">0</p><button id="add" onclick="addition()" class="order-qt-add">+</button></h2>
+                <h2 id= "foodQt"><button id="sub" onclick="substract()" class="order-qt-sub">-</button><p name = "Fqt" style="display: inline;">0</p><button id="add" onclick="addition()" class="order-qt-add">+</button></h2>
             
                 
             </div>
             <div class="modal-footer">
-                <button id="closeMod" onclick="closeMod()" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button id="closeMod" onclick="closeMod()" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>    
                 <button id="submitMod" onclick="submit()" type="button" class="btn btn-primary">Add to order</button>
             </div>
             </div>
@@ -58,7 +58,7 @@
         <div class="col">
            <form>
             <label id="number">Table no.</label>
-            <select id="sel-number">
+            <select name="tableNo" id="sel-number">
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>

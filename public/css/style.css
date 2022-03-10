@@ -52,7 +52,7 @@ li{
 
 /*Navbar*/
 
-.navbar, .order{
+.navbar, .orderTitle{
     margin-top: 3vw;
     background-color: white;
     width: auto;
@@ -87,6 +87,7 @@ input.search{
 #searchBar{
     font-family: 'Annie Use Your Telescope';
     border-radius: 0.75vw;
+    font-size: 2vw;
 }
 .form-inline{
     margin-top: 0.5vw;
@@ -109,13 +110,13 @@ section h2, h5{
     border-radius: 1vw;
     margin-left: 2vw;
     font-family: 'Annie Use Your Telescope';
-    font-size: 3.5vw;
+    font-size: calc(1.325rem + 1vw);
     color: white;
     font-weight: bold;
 }
 div[role="button"] h5{
     padding-left: 7vw;
-    font-size: 2vw;
+    font-size: calc(1rem + .5vw);
 }
 section{
     margin-top: 4.5vw;
@@ -126,7 +127,7 @@ div[role=button]{
     margin-bottom: 0.75vw;
 }
 div[role=button] h2{
-    font-size: 2.5vw;
+    font-size: calc(1.35rem + .7vw);
 }
 .price {
     text-align: right;
@@ -155,7 +156,7 @@ div[role=button] h2{
   }
 
 /*order list*/
-.order h1{
+.orderTitle h1{
     font-family: 'Annie Use Your Telescope';
     text-align: center;
     margin-top: 2vw;
@@ -180,7 +181,7 @@ div[role=button] h2{
     color: white;
 }
 .orderList .row h2{
-    font-size: 2.5vw;
+    font-size: calc(1.325rem + 1vw);
 }
 table{
     margin-bottom: 2vw;
@@ -188,7 +189,7 @@ table{
 th{
     padding-left: 2vw;
     color: black;
-    font-size: 2vw;
+    font-size: calc(1rem + 0.7vw);
 }
 th:nth-child(1){
     color: white;
@@ -202,7 +203,6 @@ footer div li i{
     font-size: 2.5vw;
 }
 div p{
-    font-size: 2vw;
     font-family: 'Annie Use Your Telescope';
     margin: 0%;
 }

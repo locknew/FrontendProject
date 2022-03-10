@@ -23,7 +23,7 @@
             <input class ="search" type="search" id="searchBar" onkeyup="searchFood()" placeholder="Search for name">
             <button id = "submit" class="btn">Submit your order</button>
         </form>
-        <div class="scroll">
+        <div class="scroll" id="foodColumn">
             <section id="Appetizer">
                 <h2>Appetizer</h2>
                 <div onclick="showModal(this.id)" id ="caesar" class = "row mod" role="button" data-toggle="modal" data-target="#exampleModal">
@@ -243,29 +243,14 @@
         </div>
     </div>
     <div id = "order" class="col col-12 col-xl-6">
-        <div class = "order">
+        <div class = "orderTitle">
             <h1>Orderlist</h1>
         </div>
         <div class="scroll">
-            <div class= "orderList">
-                <div class = "row" data-toggle="modal" data-target="#exampleModal">
-                    <div class ="foodOr col-10 col-sm-10">
-                        <h2>Caesar Salad</h2>
-                    </div>
-                    <div class ="deleteOrder col-2 col-sm-2">
-                        <h2 id = "delete" role = "button" onclick="deleteOrder()">-</h2>
-                    </div>
-                    <div class="row">
-                        <div class="request col-10 col-sm-10">
-                            <h5>request</h5>
-                        </div>
-                        <div class="qt col-2 col-sm-2">
-                            <h3 class="qt">2</h3>
-                        </div> 
-                    </div>
-                          
-                </div>
+            <div id="orderRow">
+                
             </div>
+            
             <div class= "orderList">
                 <h1>Order#2</h1>
                 <div class = "row">
