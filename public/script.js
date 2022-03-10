@@ -64,3 +64,41 @@ function searchFood(){
     }
 }
 
+/* Kitchen js*/ 
+var Chef = [
+  
+    {
+      Username: "Thictikorne",
+      Password: "vin"
+    },
+    {
+      Username: "Suradit",
+      Password: "Luo"
+    }
+  ]
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+  
+  
+  
+
+function ChefLogin(){
+
+    var username = document.querySelector('#Username').value
+    var password = document.querySelector("Password").value
+   
+    for(i = 0;i<Chef.length;i++){
+        if(username ==Chef[i].Username&&password==Chef[i].Password)
+        {
+            alert("TRUE")
+            return
+        }
+    
+        }
+        alert ("FALSE")
+    }
+
+    
