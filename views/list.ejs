@@ -1,0 +1,324 @@
+<%- include("partials/header") -%>
+<div class ="row">
+    <div id = "menu" class="col col-12 col-xl-6">
+        <nav class="navbar navbar-expand navbar-light ">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="#Appetizer">Appetizer</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#MainDish">Main dish</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#Dessert">Dessert</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#Drink">Drink</a>
+                </li>
+              </ul>
+            </div>
+        </nav>
+        <form class="form-inline ">
+            <input class ="search" type="search" id="searchBar" onkeyup="searchFood()" placeholder="Search for name">
+            <button id = "submit" class="btn">Submit your order</button>
+        </form>
+        <div class="scroll" id="foodColumn">
+            <section id="Appetizer">
+                <h2>Appetizer</h2>
+                <div onclick="showModal(this.id)" id ="caesar" class = "row mod" role="button" data-toggle="modal" data-target="#exampleModal">
+                    <div class ="food col">
+                        <h2>Caesar Salad</h2>
+                    </div>
+                    <div class ="price col">
+                        <h2>129฿</h2>
+                    </div>
+                    <div class="row">
+                        <div class="descript col">
+                            <h5>A green salad of romaine lettuce and croutons dressed with caesar dressing</h5>
+                        </div> 
+                    </div>
+                    
+                </div>
+                <div onclick="showModal(this.id)" id ="nugget" class = "row mod" role="button" data-toggle="modal" data-target="#exampleModal">
+                    <div class ="food col">
+                        <h2>Chicken nugget</h2>
+                    </div>
+                    <div class ="price col">
+                        <h2>99฿</h2>
+                    </div>
+                    <div class="row">
+                        <div class="descript col">
+                            <h5>It's finger licking good!</h5>
+                        </div>    
+                    </div>
+                </div>
+                <div onclick="showModal(this.id)" id="roll" class = "row mod" role="button" data-toggle="modal" data-target="#exampleModal">
+                    <div class ="food col">
+                        <h2>California roll</h2>
+                    </div>
+                    <div class ="price col">
+                        <h2>79฿</h2>
+                    </div>
+                    <div class="row">
+                        <div class="descript col">
+                            <h5>A sushi roll with apple...weird right?</h5>
+                        </div>    
+                    </div>
+                </div>
+                <div onclick="showModal(this.id)" id = "chip" class = "row mod" role="button" data-toggle="modal" data-target="#exampleModal">
+                    <div class ="food col">
+                        <h2>Fish 'n chip</h2>
+                    </div>
+                    <div class ="price col">
+                        <h2>179฿</h2>
+                    </div>
+                    <div class="row">
+                        <div class="descript col">
+                            <h5>Deep fried fish with french fries</h5>
+                        </div>
+                    </div> 
+                </div>
+                
+            </section>
+            <section id="MainDish">
+                <h2>Main Dish</h2>
+                <div onclick="showModal(this.id)" id = "blt" class = "row mod" role="button" data-toggle="modal" data-target="#exampleModal">
+                    <div class ="food col">
+                        <h2>BLT</h2>
+                    </div>
+                    <div class ="price col">
+                        <h2>199฿</h2>
+                    </div>
+                    <div class="row">
+                        <div class="descript col">
+                            <h5>Bacon Lettuce Tomatoes sandwich. Our signature!</h5>
+                        </div>
+                    </div>
+                </div>
+                <div onclick="showModal(this.id)" id = "pizza" class = "row mod" role="button" data-toggle="modal" data-target="#exampleModal">
+                    <div class ="food col">
+                        <h2>Pizza</h2>
+                    </div>
+                    <div class ="price col">
+                        <h2>299฿</h2>
+                    </div>
+                    <div class="row">
+                        <div class="descript col">
+                            <h5>With pineapple!</h5>
+                        </div>  
+                    </div>
+                       
+                </div>
+                <div onclick="showModal(this.id)" id = "porkchop" class = "row mod" role="button" data-toggle="modal" data-target="#exampleModal">
+                    <div class ="food col">
+                        <h2>Porkchop</h2>
+                    </div>
+                    <div class ="price col">
+                        <h2>239฿</h2>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="descript col">
+                            <h5>Served with mashed potatoes</h5>
+                        </div>      
+                    </div>
+                        
+                </div>
+                <div onclick="showModal(this.id)" id = "spaghetti" class = "row mod" role="button" data-toggle="modal" data-target="#exampleModal">
+                    <div class ="food col">
+                        <h2>Carbonara</h2>
+                    </div>
+                    <div class ="price col">
+                        <h2>229฿</h2>
+                    </div>
+                    <div class="row">
+                        <div class="descript col">
+                            <h5>Creamy sauce with our homemade pasta</h5>
+                        </div>       
+                    </div>
+                      
+                </div>
+            </section>
+            <section id="Dessert">
+                <h2>Dessert</h2>
+                <div onclick="showModal(this.id)" id = "tiramisu" class = "row mod" role="button" data-toggle="modal" data-target="#exampleModal">
+                    <div class ="food col">
+                        <h2>Tiramisu</h2>
+                    </div>
+                    <div class ="price col">
+                        <h2>139฿</h2>
+                    </div>
+                    <div class="row">
+                        <div class="descript col">
+                            <h5>Japanese coffee cakes, good for morning</h5>
+                        </div>      
+                    </div>
+                         
+                </div>
+                <div onclick="showModal(this.id)" id = "cheeseCake" class = "row mod" role="button" data-toggle="modal" data-target="#exampleModal">
+                    <div class ="food col">
+                        <h2>Cheesecake</h2>
+                    </div>
+                    <div class ="price col">
+                        <h2>129฿</h2>
+                    </div>
+                    <div class="row">
+                        <div class="descript col">
+                            <h5>NY style!</h5>
+                        </div>   
+                    </div>
+                       
+                </div>
+                <div onclick="showModal(this.id)" id = "toast" class = "row mod" role="button" data-toggle="modal" data-target="#exampleModal">
+                    <div class ="food col">
+                        <h2>Honey toast</h2>
+                    </div>
+                    <div class ="price col">
+                        <h2>199฿</h2>
+                    </div>
+                    <div class="row">
+                        <div class="descript col">
+                            <h5>A Toast with ice cream on top</h5>
+                        </div>      
+                    </div>
+                       
+            </section>
+            <section id="Drink">
+                <h2>Drink</h2>
+                <div onclick="showModal(this.id)" id = "coffee" class = "row mod" role="button" data-toggle="modal" data-target="#exampleModal">
+                    <div class ="food col">
+                        <h2>Hot Espresso</h2>
+                    </div>
+                    <div class ="price col">
+                        <h2>69฿</h2>
+                    </div>
+                    <div class="row">
+                        <div class="descript col">
+                            <h5>Wake up</h5>
+                        </div>      
+                    </div>
+                       
+                </div>
+                <div onclick="showModal(this.id)" id = "coke" class = "row mod" role="button" data-toggle="modal" data-target="#exampleModal">
+                    <div class ="food col">
+                        <h2>Coke</h2>
+                    </div>
+                    <div class ="price col">
+                        <h2>29฿</h2>
+                    </div>
+                    <div class="row">
+                        <div class="descript col">
+                            <h5>Sign of good taste</h5>
+                        </div>
+                    </div>      
+                </div>
+                <div onclick="showModal(this.id)" id = "soda" class = "row mod" role="button" data-toggle="modal" data-target="#exampleModal"">
+                    <div class ="food col">
+                        <h2>Lemon soda</h2>
+                    </div>
+                    <div class ="price col">
+                        <h2>59฿</h2>
+                    </div>
+                    <div class="row">
+                        <div class="descript col">
+                            <h5>You can feel the incoming summer</h5>
+                        </div>   
+                    </div>
+                </div>
+                <div onclick="showModal(this.id)" id = "water" class = "row mod" role="button" data-toggle="modal" data-target="#exampleModal"">
+                    <div class ="food col">
+                        <h2>Water</h2>
+                    </div>
+                    <div class ="price col">
+                        <h2>19฿</h2>
+                    </div>
+                    <div class="row">
+                        <div class="descript col">
+                            <h5>A bottle of water</h5>
+                        </div>   
+                    </div>
+                </div>       
+            </section>
+        </div>
+    </div>
+    <div id = "order" class="col col-12 col-xl-6">
+        <div class = "orderTitle">
+            <h1>Orderlist</h1>
+        </div>
+        <div class="scroll">
+            <div id="orderRow">
+                
+            </div>
+            
+            <div class= "orderList">
+                <h1>Order#2</h1>
+                <div class = "row">
+                    <table>
+                        <tr>
+                            <th>Status:</th>
+                            <th style="color: white;">Queue</th>
+                            <th>Cook</th>
+                            <th>Served</th>
+                            <th>Cancelled</th>
+                        </tr>
+                    </table>
+                    <div class ="food col col-10 col-sm-10">
+                        <h2>Food#1</h2>
+                    </div>
+                    <div class ="qt col col-2 col-sm-2">
+                        <h2>x1</h2>
+                    </div>
+                    <div class ="food col col-10 col-sm-10">
+                        <h2>Food#2</h2>
+                    </div>
+                    <div class ="qt col col-2 col-sm-2">
+                        <h2>x2</h2>
+                    </div>
+                    <div class ="food col col-10 col-sm-10">
+                        <h2>Food#3</h2>
+                    </div>
+                    <div class ="qt col col-2 col-sm-2">
+                        <h2>x3</h2>
+                    </div>
+                    <button id = "cancel" class="btn">Cancel order</button>
+                </div>
+            </div>
+            <div class= "orderList">
+                <h1>Order#1</h1>
+                <div class = "row">
+                    <table>
+                        <tr>
+                            <th>Status:</th>
+                            <th>Queue</th>
+                            <th>Cook</th>
+                            <th style="color: white;">Served</th>
+                            <th>Cancelled</th>
+                        </tr>
+                    </table>
+                    <div class ="food col col-10 col-sm-10">
+                        <h2>Food#1</h2>
+                    </div>
+                    <div class ="qt col col-2 col-sm-2">
+                        <h2>x3</h2>
+                    </div>
+                    <div class ="food col col-10 col-sm-10">
+                        <h2>Food#2</h2>
+                    </div>
+                    <div class ="qt col col-2 col-sm-2">
+                        <h2>x2</h2>
+                    </div>
+                    <div class ="food col col-10 col-sm-10">
+                        <h2>Food#3</h2>
+                    </div>
+                    <div class ="qt col col-2 col-sm-2">
+                        <h2>x1</h2>
+                    </div>
+                    <button style="display: none;" id = "cancel" class="btn">Cancel order</button>
+                </div>
+            </div>
+        </div>
+        <button id = "checkOut" class="btn">Checkout</button>
+    </div>
+</div>
+<%- include("partials/footer") -%>
