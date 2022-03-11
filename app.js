@@ -10,8 +10,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json())
 app.use(express.static("public"));
 app.use(express.static(__dirname + './public/script.js'));
-const client = new MongoClient('mongodb+srv://locknew:12345@cluster0.2uz6u.mongodb.net/Restaurant?retryWrites=true&w=majority');
-var loggedIn = [];             
+const client = new MongoClient('mongodb+srv://BLT:Milk%40081@restaurant.ftxwd.mongodb.net/Restaurant?retryWrites=true&w=majority');
+var loggedIn = {};             
 
 app.get("/", function(req, res) {
     res.render('list.ejs');
@@ -19,13 +19,13 @@ app.get("/", function(req, res) {
 
 app.get("/kitchen", function(req, res) {
     var ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress
-    res.render('kitchen.ejs', { isLoggedIn: req.query.l === "true" || loggedIn.includes(ip) });
+    res.render('kitchen.ejs', { isLoggedIn: Object.keys(loggedIn).includes(ip), name: loggedIn[ip] });
 })
 
 app.post("/login", async function(req, res) {
     var ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress
     await client.connect()
-    const db = client.db('Restaurant').collection('Chef');;
+    const db = client.db('Restaurant').collection('User');;
     var resBody = {
         status: "success",
         data: {}
@@ -36,8 +36,8 @@ app.post("/login", async function(req, res) {
             const data = await db.findOne({ "Username": user["Username"] });
             if (data !== null) {
                 if (data["Password"] === user["Password"]) {
-                    loggedIn.push(ip);
-                    console.log(`${ip} logged in.`)
+                    loggedIn[ip] = user["Username"];
+                    console.log(`${ip} logged in.`);
                 } else resBody["status"] = "error";
             } else resBody["status"] = "error";
         } else resBody["status"] = "error";
@@ -53,7 +53,7 @@ app.post("/logout", async function(req, res) {
         status: "success",
         data: {}
     };
-    loggedIn.splice(loggedIn.indexOf(ip), 1)
+    delete loggedIn[ip]
     console.log(`${ip} logged out.`)
     res.json(resBody);
 })
