@@ -11,23 +11,10 @@ app.use(bodyParser.json())
 app.use(express.static("public"));
 app.use(express.static(__dirname + './public/script.js'));
 const client = new MongoClient('mongodb+srv://BLT:Milk%40081@restaurant.ftxwd.mongodb.net/Restaurant?retryWrites=true&w=majority');
-var loggedIn = {};
-var orderNo = 0;
+var loggedIn = {};             
 
-app.get("/", async function(req, res) {
-    await client.connect()
-    const list = [];
-    try {
-        const db = client.db('Restaurant').collection('Order');
-        const data = await db.find(/*{ "pen": "paper" } simulate 0 result*/).forEach(function(obj) {
-            list.push(obj);
-        })
-        list.sort((firstEl, secondEl) => { return secondEl.order - firstEl.order })
-        orderNo = list[0].order;
-    } catch (err) {
-        orderNo = 0;
-    }
-    res.render('list.ejs', { orderList: list });
+app.get("/", function(req, res) {
+    res.render('list.ejs');
 })
 
 app.get("/kitchen", function(req, res) {
@@ -38,7 +25,7 @@ app.get("/kitchen", function(req, res) {
 app.post("/login", async function(req, res) {
     var ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress
     await client.connect()
-    const db = client.db('Restaurant').collection('User');
+    const db = client.db('Restaurant').collection('User');;
     var resBody = {
         status: "success",
         data: {}
@@ -68,25 +55,6 @@ app.post("/logout", async function(req, res) {
     };
     delete loggedIn[ip]
     console.log(`${ip} logged out.`)
-    res.json(resBody);
-})
-
-app.post("/submit", async function(req, res) {
-    console.log("submission started")
-    await client.connect()
-    const db = client.db('Restaurant').collection('Order');
-    var resBody = {
-        status: "success",
-        data: {}
-    };
-    console.log(req.body);
-    try {
-        const order = req.body["out"]
-        order["order"] = ++orderNo;
-        await db.insertOne(order);
-    } catch (err) {
-        resBody["status"] = "error";
-    }
     res.json(resBody);
 })
 

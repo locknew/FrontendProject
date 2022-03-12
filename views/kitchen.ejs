@@ -4,9 +4,7 @@
         <div class="container-fluid logo col-cs-12 col-sm-12 col-lg-12"> BLT
             <% if(isLoggedIn){ %>
                 <button onclick="logOut()" class="button">Logout</button>
-                <h6 style="letter-spacing: normal;">Hello,
-                    <%= name %>
-                </h6>
+                <h6 style="letter-spacing: normal;">Hello, <%= name %></h6>
                 <% } else { %>
                     <button onclick="document.getElementById('lg').style.display='block'" class="button">Login</button>
                     <% } %>
