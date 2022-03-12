@@ -8,10 +8,6 @@ $(".mod").click(function(){
 });
 
 
-$(".mod").click(function() {
-    $('.modal').modal('show');
-});
-
 function showModal(foodId) {
     food = document.getElementById(foodId)
     real = false;
@@ -126,7 +122,6 @@ function deleteOrder(orderID){
     }
     checkSubmit();
 }
-
 
 async function pushToDatabase(event) {
     event.preventDefault();
