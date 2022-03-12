@@ -7,32 +7,49 @@ $(".mod").click(function(){
     $('.modal').modal('show');
 });
 
-function showModal(foodId){
+
+$(".mod").click(function() {
+    $('.modal').modal('show');
+});
+
+function showModal(foodId) {
+    food = document.getElementById(foodId)
+    real = false;
     quanti = 0;
+    index = -1;
+    if (foodList.map(x => x[0]).includes(food.children[0].innerText)) {
+        real = true;
+        index = foodList.map(x => x[0]).indexOf(food.children[0].innerText);
+        quanti = foodList[index][2]
+    }
     document.getElementById("message-text").value = "";
-    document.getElementById("modLabel").innerHTML = document.getElementById(foodId).children[0].innerHTML;
-    document.getElementById("foodDescript").innerHTML = document.getElementById(foodId).children[2].children[0].children[0].innerHTML
-    document.getElementById("foodQt").children[1].innerText = quanti;
-    document.getElementById("sub").disabled = true;
+    document.getElementById("modLabel").innerText = food.children[0].innerText;
+    document.getElementById("foodDescript").innerText = food.children[2].children[0].children[0].innerText
+    document.getElementById("message-text").value = real ? foodList[index][1] : "";
+    document.getElementById("foodQt").children[1].innerText = real ? quanti : 0;
+    document.getElementById("sub").disabled = quanti === 0 ? true : false;
 }
 
-function addition(){
+function addition() {
     quanti++;
     document.getElementById("foodQt").children[1].innerText = quanti;
     document.getElementById("sub").disabled = false;
     console.log(quanti)
 }
-function substract(){
+
+function substract() {
     quanti--;
     document.getElementById("foodQt").children[1].innerText = quanti;
-    if (document.getElementById("foodQt").children[1].innerText == 0){
+    if (document.getElementById("foodQt").children[1].innerText == 0) {
         document.getElementById("sub").disabled = true;
     }
     console.log(quanti)
 }
-function closeMod(){
+
+function closeMod() {
     $('.modal').modal('hide');
 }
+
 async function submit(){
     let tableNum = document.getElementById('sel-number').value;
     if(document.getElementById("foodQt").children[1].innerText != 0){
@@ -47,20 +64,19 @@ async function submit(){
     for(let i = 0; i < foodList.length; i++){
         console.log(foodList[i]);
     }
-
     $('.modal').modal('hide');
 }
 
-function searchFood(){
+function searchFood() {
     var input, filter, list, a;
     input = document.getElementById("searchBar");
     filter = input.value.toUpperCase();
     list = document.getElementsByClassName("row mod");
     console.log(list.length);
-    for(let i = 0; i < list.length; i++){
+    for (let i = 0; i < list.length; i++) {
         a = list[i].children[0].children[0].innerHTML;
         console.log(a);
-        if(a.toUpperCase().indexOf(filter) > -1){
+        if (a.toUpperCase().indexOf(filter) > -1) {
             list[i].style.display = "";
         } else {
             list[i].style.display = "none"
@@ -91,7 +107,13 @@ function addOrder(Id, name, request, qt){
 
     document.getElementById("orderRow").prepend(orderBox);
 }
-
+function checkSubmit(){
+    if(foodList.length < 1){
+        document.getElementById('submit').disabled = true;
+    } else {
+        document.getElementById('submit').disabled = false;
+    }
+}
 function deleteOrder(orderID){
     console.log(orderID)
     if(confirm('Do you want to remove this order?') == true){
@@ -105,10 +127,43 @@ function deleteOrder(orderID){
     checkSubmit();
 }
 
-function checkSubmit(){
-    if(foodList.length < 1){
-        document.getElementById('submit').disabled = true;
-    } else {
-        document.getElementById('submit').disabled = false;
+
+async function pushToDatabase(event) {
+    event.preventDefault();
+    var out2 = []
+    foodList.forEach(element => {
+        var temp = {
+            name: element[2],
+            quantity: element[4],
+            note: element[3]
+        }
+        out2.push(temp)
+    });
+    var out = {
+        order: -1,
+        table: parseInt(document.getElementById('sel-number').options[document.getElementById('sel-number').selectedIndex].value),
+        status: "Queue",
+        foodList: out2
+    }
+    try {
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "/submit");
+        xhr.setRequestHeader("Accept", "application/json");
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.onload = function() {
+            var response = JSON.parse(xhr.response);
+            if (response["status"] === "success") {
+                foodlist = [];
+                document.getElementById("orderRow").innerHTML = '';
+                window.location.replace("/");
+            } else {
+                alert("epic fail")
+            }
+        };
+        xhr.send(JSON.stringify({ out }));
+    } catch (err) {
+        alert(err)
     }
 }
+const form = document.getElementById('submission-form');
+form.addEventListener('submit', pushToDatabase);

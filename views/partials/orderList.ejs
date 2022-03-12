@@ -1,0 +1,22 @@
+<div class="orderList">
+    <h1>Order #
+        <%= curr.order %>
+    </h1>
+    <h6 style="font-family: 'Annie Use Your Telescope'; color: white;"> Table #
+        <%= curr.table %>
+    </h6>
+    <div class="row">
+        <table>
+            <tr>
+                <th>Status:
+                    <%= curr.status %>
+                </th>
+            </tr>
+        </table>
+        <% curr.foodList.forEach(function(obj) { %>
+            <%- include("orderSingular.ejs", {obj: obj}); -%>
+                <% }); %>
+                    <button style="display: none;" id="cancel" class="btn">Cancel order</button>
+    </div>
+
+</div>
