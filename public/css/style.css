@@ -3,7 +3,7 @@
     background-color: rgb(48, 47, 46);
 }
 h1, #number, #sel-number, li{
-    font-size: 3vw;
+    font-size: calc(1.25rem + 1vw);
     font-family: 'Annie Use Your Telescope';
 }
 h1{
@@ -61,11 +61,11 @@ li{
     border: 1vw solid black;
 }
 a.nav-link, #search, #submit, #checkOut{
-    font-size: 2.75vw;
+    font-size: 1.325rem + 2vw;
     font-family: 'Annie Use Your Telescope';
 }
 #search, #submit, #checkOut, #cancel{
-    font-size: 2vw;
+    font-size: calc(1.325rem + 0.7vw);
     color: white;
 }
 #checkOut:hover, #search:hover, #submit:hover{
@@ -80,14 +80,11 @@ a.nav-link, #search, #submit, #checkOut{
 .my-2{
     width: 10%;
 }
-input.search{
-    width:15vw;
-    height:3vw;
-}
+
 #searchBar{
     font-family: 'Annie Use Your Telescope';
-    border-radius: 0.75vw;
-    font-size: 2vw;
+    border-radius: 2vw;
+    font-size: calc(1rem + .5vw);
 }
 .form-inline{
     margin-top: 0.5vw;
@@ -132,7 +129,10 @@ div[role=button] h2{
 .price {
     text-align: right;
 }
-
+input.search{
+    width: calc(5rem + 15vw);
+    height: calc(1.325rem + 1vw);
+}
 
 /*Scroll bar*/
     /* width */
@@ -195,7 +195,7 @@ th:nth-child(1){
     color: white;
 }
 /*Footer*/
-footer {
+#footer {
     margin-top: 3vw;
     height:fit-content
 }
@@ -235,6 +235,10 @@ h2.modal-title{
 }
 
 /* kitchen*/
+#logoKitchen{
+    font-size: calc(1.5rem + 2vw);
+    display: block;
+}
 .Listbar{
     background-color: #ebebeb;
     margin-top: 2vw;
@@ -245,6 +249,7 @@ h2.modal-title{
 }
 .container-fluid{
     margin-top: 1em;
+    
     width: 100%;
     padding: 1vw;
     background-color:rgb(48, 47, 46);
@@ -277,7 +282,7 @@ h2.modal-title{
     background-color: rgb(49, 49, 49);
     text-align: right;
     float:right;
-    font-size: 30px;
+    font-size: calc(1rem + 1vw);
     border-radius: 8px;
     color:white;
 }
@@ -361,7 +366,7 @@ button:hover {
   .login-header {
     background: rgb(23, 23, 24);
     padding: 20px;
-    font-size: 1.4em;
+    font-size: calc(1rem + .9vw);
     font-weight: normal;
     text-align: center;
     text-transform: uppercase;
@@ -371,6 +376,7 @@ button:hover {
   .login-container {
     background: #ebebeb;
     padding: 16px;
+    width: fit-content;
   }
   
   
@@ -387,7 +393,7 @@ button:hover {
     padding: 16px;
     outline: 0;
     font-family: inherit;
-    font-size: 0.95em;
+    font-size: calc(1rem + 1.5vw);
   }
   
   .login input[type="Username"],
@@ -414,3 +420,6 @@ button:hover {
   .login input[type="submit"]:focus {
     border-color: rgb(37, 37, 37);
   }
+
+/*sumbox*/
+.sumbox{}
