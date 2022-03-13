@@ -30,11 +30,21 @@ app.get("/", async function(req, res) {
     res.render('list.ejs', { orderList: list });
 })
 
-app.get("/kitchen", function(req, res) {
+app.get("/kitchen", async function(req, res) {
     var ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress
-    res.render('kitchen.ejs', { isLoggedIn: Object.keys(loggedIn).includes(ip), name: loggedIn[ip] });
+    const list = [];
+    try {
+        const db = client.db('Restaurant').collection('Order');
+        const data = await db.find( /*{ "pen": "paper" } simulate 0 result*/ ).forEach(function(obj) {
+            list.push(obj);
+        })
+        list.sort((firstEl, secondEl) => { return secondEl.order - firstEl.order })
+        orderNo = list[0].order;
+    } catch (err) {
+        orderNo = -1;
+    }
+    res.render('kitchen.ejs', { isLoggedIn: Object.keys(loggedIn).includes(ip), name: loggedIn[ip], orderList: list });
 })
-
 app.post("/login", async function(req, res) {
     var ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress
     await client.connect()
