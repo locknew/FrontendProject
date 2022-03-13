@@ -3,13 +3,15 @@ var foodList = [];
 var quanti = document.getElementById("foodQt").children[1].innerText;
 var Fname, request, qt;
 var orderID = 0;
+var price = 0;
+
 $(".mod").click(function(){
     $('.modal').modal('show');
 });
 
 
 function showModal(foodId) {
-    food = document.getElementById(foodId)
+    food = document.getElementById(foodId);
     real = false;
     quanti = 0;
     index = -1;
@@ -24,13 +26,14 @@ function showModal(foodId) {
     document.getElementById("message-text").value = real ? foodList[index][1] : "";
     document.getElementById("foodQt").children[1].innerText = real ? quanti : 0;
     document.getElementById("sub").disabled = quanti === 0 ? true : false;
+    price = food.children[1].children[0].innerHTML.replace("฿", "");
+    console.log(price);
 }
 
 function addition() {
     quanti++;
     document.getElementById("foodQt").children[1].innerText = quanti;
     document.getElementById("sub").disabled = false;
-    console.log(quanti)
 }
 
 function substract() {
@@ -39,7 +42,6 @@ function substract() {
     if (document.getElementById("foodQt").children[1].innerText == 0) {
         document.getElementById("sub").disabled = true;
     }
-    console.log(quanti)
 }
 
 function closeMod() {
@@ -53,9 +55,9 @@ async function submit(){
         Fname = document.getElementById("modLabel").innerText;
         request = document.getElementById("message-text").value;
         qt = document.getElementById("foodQt").children[1].innerText;
-        foodList.push(['order'+orderID,tableNum, Fname, request, qt])
+        foodList.push(['order'+orderID, tableNum, Fname, request, qt, price, qt*price])
         addOrder(orderID, Fname, request, qt);
-        document.getElementById('submit').disabled = false;
+        document.getElementById('submit').disabled = false; 
     }
     for(let i = 0; i < foodList.length; i++){
         console.log(foodList[i]);
@@ -71,7 +73,6 @@ function searchFood() {
     console.log(list.length);
     for (let i = 0; i < list.length; i++) {
         a = list[i].children[0].children[0].innerHTML;
-        console.log(a);
         if (a.toUpperCase().indexOf(filter) > -1) {
             list[i].style.display = "";
         } else {
@@ -130,7 +131,9 @@ async function pushToDatabase(event) {
         var temp = {
             name: element[2],
             quantity: element[4],
-            note: element[3]
+            note: element[3],
+            price: element[5],
+            total: element[6]
         }
         out2.push(temp)
     });
@@ -160,5 +163,4 @@ async function pushToDatabase(event) {
         alert(err)
     }
 }
-const form = document.getElementById('submission-form');
-form.addEventListener('submit', pushToDatabase);
+document.getElementById('submission-form').addEventListener('submit', pushToDatabase);

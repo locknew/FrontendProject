@@ -301,9 +301,8 @@ button:hover {
     overflow: auto; 
     background-color: rgb(0,0,0);
     background-color: rgba(0,0,0,0.4);
-    padding-top: 60px;
-    padding-left: 25%;
-    padding-right: 25%;
+    padding-left: 10%;
+    padding-right: 10%;
   }
   .modal-content {
     background-color: #fefefe;
@@ -422,4 +421,29 @@ button:hover {
   }
 
 /*sumbox*/
-.sumbox{}
+.sumBox{
+    border: none;
+    padding: 5px;
+    font: 24px/36px sans-serif;
+    width: auto;
+    height: auto;
+    overflow: scroll;
+}
+#sumTable{
+    display: inline-block;
+}
+#sumTable th, #sumTable td{
+    font-family: 'Annie Use Your Telescope';
+    padding-right: 20vw;
+    color: #000;
+    font-size: calc(1rem + .5vw);
+}
+#sumTable td{
+    text-align: right;
+}
+#sumTable td:nth-child(1){
+    text-align: left;
+}
+#sumTable th:nth-child(3), #sumTable td:nth-child(3){
+    padding-right: 5vw;
+}
