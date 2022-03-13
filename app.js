@@ -19,7 +19,7 @@ app.get("/", async function(req, res) {
     const list = [];
     try {
         const db = client.db('Restaurant').collection('Order');
-        const data = await db.find(/*{ "pen": "paper" } simulate 0 result*/).forEach(function(obj) {
+        const data = await db.find().forEach(function(obj) {
             list.push(obj);
         })
         list.sort((firstEl, secondEl) => { return secondEl.order - firstEl.order })
@@ -98,6 +98,24 @@ app.post("/submit", async function(req, res) {
         resBody["status"] = "error";
     }
     res.json(resBody);
+})
+
+app.post("/checkout", async function(req, res){
+    await client.connect()
+    const db = client.db('Restaurant').collection('Order');
+    var resBody = {
+        status: "success",
+        data: {}
+    };
+    try {
+        db.drop();
+        client.db('Restaurant').createCollection('Order');
+        console.log("remove success");
+    }catch (err) {
+        resBody["status"] = "error";
+    }
+    res.json(resBody);
+    res.render('list.ejs');
 })
 
 app.listen('3000', function() {
