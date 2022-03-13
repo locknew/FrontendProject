@@ -10,14 +10,13 @@
             <tr>
                 <th>Status:
                     <% if(isLoggedIn) { %>
-                        <select name="orderStatus" id="orderStatus<%= curr.order %>"
-                            onchange="changeStatus(<%= curr.order %>, document.getElementById('orderStatus<%= curr.order %>').value)">
-                            <option value="Queue">Queue</option>
-                            <option value="Cooking">Cooking</option>
-                            <option value="Serve">Serve</option>
-                            <% } else { %>
-                                <%- curr.status %>
-                                    <% } %>
+                        <select name="orderStatus" id="orderStatus<%= curr.order %>" onchange="changeStatus(<%= curr.order %>, document.getElementById('orderStatus<%= curr.order %>').value)">
+              <option value="Queue">Queue</option>
+              <option value="Cooking">Cooking</option>
+              <option value="Serve">Serve</option>
+                    <% } else { %>
+                        <%- curr.status %>
+                    <% } %>
                 </th>
                 <th>
                     test
@@ -27,11 +26,13 @@
         <% curr.foodList.forEach(function(obj) { %>
             <%- include("orderSingular.ejs", {obj: obj}); -%>
                 <% }); %>
-                    <button style="display: none;" id="cancel" class="btn">Cancel order</button>
+                <% if(!isLoggedIn) {%>
+                    <button style="display: block;" id="cancel" class="btn" onclick="cancel(<%- curr.order %>)">Cancel order</button>
+                <% } %>
     </div>
     <% if(isLoggedIn) { %>
         <script>
             document.getElementById("orderStatus<%- curr.order %>").value = "<%- curr.status %>";
         </script>
-        <% } %>
+    <% } %>
 </div>

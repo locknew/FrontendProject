@@ -81,16 +81,26 @@ app.post("/logout", async function (req, res) {
     res.json(resBody);
 })
 
-app.post("/submit", async function (req, res) {
-    console.log("submission started")
+app.post("/submit", async function(req, res) {
     await client.connect()
     const db = client.db('Restaurant').collection('Order');
     var resBody = {
         status: "success",
         data: {}
     };
-    console.log(req.body);
     try {
+        if (orderNo === -1) {
+            try {
+                const list = [];
+                const data = await db.find().forEach(function(obj) {
+                    list.push(obj);
+                })
+                list.sort((firstEl, secondEl) => { return secondEl.order - firstEl.order })
+                orderNo = list[0].order;
+            } catch (err) {
+                orderNo = 1
+            }
+        }
         const order = req.body["out"]
         order["order"] = ++orderNo;
         await db.insertOne(order);
@@ -129,6 +139,22 @@ app.post("/changeStatus", async function (req, res) {
     try {
         const order = req.body["out"]
         await db.updateOne({ "order": order["order"] }, { $set: { status: order["status"] } })
+    } catch (err) {
+        resBody["status"] = "error";
+    }
+    res.json(resBody);
+})
+
+app.post("/cancel", async function(req, res) {
+    await client.connect()
+    const db = client.db('Restaurant').collection('Order');
+    var resBody = {
+        status: "success",
+        data: {}
+    };
+    try {
+        const order = req.body["out"]
+        await db.deleteOne({ "order": order["order"] })
     } catch (err) {
         resBody["status"] = "error";
     }

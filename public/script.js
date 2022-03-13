@@ -183,4 +183,25 @@ async function changeStatus(order, status) {
         alert(err)
     }
 }
+
+async function cancel(order) {
+    try {
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", `/cancel`);
+        out = { "order": order }
+        xhr.setRequestHeader("Accept", "application/json");
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.onload = function() {
+            var response = JSON.parse(xhr.response);
+            if (response["status"] === "success") {
+                window.location.replace("/");
+            } else {
+                alert("epic fail")
+            }
+        };
+        xhr.send(JSON.stringify({ out }));
+    } catch (err) {
+        alert(err)
+    }
+}
 document.getElementById('submission-form').addEventListener('submit', pushToDatabase);
