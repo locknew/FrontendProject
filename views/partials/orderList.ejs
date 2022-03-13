@@ -27,12 +27,15 @@
             <%- include("orderSingular.ejs", {obj: obj}); -%>
                 <% }); %>
                 <% if(!isLoggedIn) {%>
+                    <% if(curr.status == 'Queue') {%>
                     <button style="display: block;" id="cancel" class="btn" onclick="cancel(<%- curr.order %>)">Cancel order</button>
+                    <% } %>
                 <% } %>
     </div>
     <% if(isLoggedIn) { %>
         <script>
             document.getElementById("orderStatus<%- curr.order %>").value = "<%- curr.status %>";
+            
         </script>
     <% } %>
 </div>

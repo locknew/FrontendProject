@@ -13,13 +13,15 @@
                     <th>Price</th>
                 </tr>
             <% curr.forEach(function(obj) { %>
-                <% obj.foodList.forEach(function(food) { %>
-                    <tr>
-                        <td><%= food.name %></td>
-                        <td><%= food.quantity %></td>
-                        <td class="sumPrice"><%= food.total %>฿</td>
-                    </tr>
-                <% }); %>        
+                <% if(obj.status == 'Serve') {%>
+                    <% obj.foodList.forEach(function(food) { %>
+                        <tr>
+                            <td><%= food.name %></td>
+                            <td><%= food.quantity %></td>
+                            <td class="sumPrice"><%= food.total %>฿</td>
+                        </tr>
+                    <% }); %> 
+                <% } %>       
             <% }); %>
                 
 

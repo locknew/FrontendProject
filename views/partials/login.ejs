@@ -27,7 +27,7 @@
                 if (response["status"] === "success") {
                     window.location.replace("/kitchen");
                 } else {
-                    alert("epic fail")
+                    alert("Invalid username or password")
                 }
             };
             xhr.send(JSON.stringify({
