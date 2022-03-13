@@ -17,7 +17,7 @@
                     <tr>
                         <td><%= food.name %></td>
                         <td><%= food.quantity %></td>
-                        <td class="sumPrice"><%= food.price %>฿</td>
+                        <td class="sumPrice"><%= food.total %>฿</td>
                     </tr>
                 <% }); %>        
             <% }); %>
@@ -34,7 +34,6 @@
     function addTotal() {
         let total = 0; 
         let sumPrice = document.getElementsByClassName('sumPrice');
-        var table = parseInt(document.getElementById('sel-number').options[document.getElementById('sel-number').selectedIndex].value)
         for (let i = 0; i < sumPrice.length; i++) {
             total += parseInt(sumPrice[i].innerHTML.replace("฿", ""))
         }
