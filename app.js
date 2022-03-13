@@ -14,12 +14,12 @@ const client = new MongoClient('mongodb+srv://BLT:Milk%40081@restaurant.ftxwd.mo
 var loggedIn = {};
 var orderNo = 0;
 
-app.get("/", async function(req, res) {
+app.get("/", async function (req, res) {
     await client.connect()
     const list = [];
     try {
         const db = client.db('Restaurant').collection('Order');
-        const data = await db.find().forEach(function(obj) {
+        const data = await db.find().forEach(function (obj) {
             list.push(obj);
         })
         list.sort((firstEl, secondEl) => { return secondEl.order - firstEl.order })
@@ -30,12 +30,12 @@ app.get("/", async function(req, res) {
     res.render('list.ejs', { orderList: list });
 })
 
-app.get("/kitchen", async function(req, res) {
+app.get("/kitchen", async function (req, res) {
     var ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress
     const list = [];
     try {
         const db = client.db('Restaurant').collection('Order');
-        const data = await db.find( /*{ "pen": "paper" } simulate 0 result*/ ).forEach(function(obj) {
+        const data = await db.find( /*{ "pen": "paper" } simulate 0 result*/).forEach(function (obj) {
             list.push(obj);
         })
         list.sort((firstEl, secondEl) => { return secondEl.order - firstEl.order })
@@ -45,7 +45,7 @@ app.get("/kitchen", async function(req, res) {
     }
     res.render('kitchen.ejs', { isLoggedIn: Object.keys(loggedIn).includes(ip), name: loggedIn[ip], orderList: list });
 })
-app.post("/login", async function(req, res) {
+app.post("/login", async function (req, res) {
     var ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress
     await client.connect()
     const db = client.db('Restaurant').collection('User');
@@ -70,7 +70,7 @@ app.post("/login", async function(req, res) {
     res.json(resBody);
 })
 
-app.post("/logout", async function(req, res) {
+app.post("/logout", async function (req, res) {
     var ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress
     var resBody = {
         status: "success",
@@ -81,7 +81,7 @@ app.post("/logout", async function(req, res) {
     res.json(resBody);
 })
 
-app.post("/submit", async function(req, res) {
+app.post("/submit", async function (req, res) {
     console.log("submission started")
     await client.connect()
     const db = client.db('Restaurant').collection('Order');
@@ -100,7 +100,7 @@ app.post("/submit", async function(req, res) {
     res.json(resBody);
 })
 
-app.post("/checkout", async function(req, res){
+app.post("/checkout", async function (req, res) {
     await client.connect()
     const db = client.db('Restaurant').collection('Order');
     var resBody = {
@@ -111,13 +111,30 @@ app.post("/checkout", async function(req, res){
         db.drop();
         client.db('Restaurant').createCollection('Order');
         console.log("remove success");
-    }catch (err) {
+    } catch (err) {
         resBody["status"] = "error";
     }
     res.json(resBody);
     res.render('list.ejs');
 })
 
-app.listen('3000', function() {
+app.post("/changeStatus", async function (req, res) {
+    await client.connect()
+    const db = client.db('Restaurant').collection('Order');
+    var resBody = {
+        status: "success",
+        data: {}
+    };
+    console.log(req.body);
+    try {
+        const order = req.body["out"]
+        await db.updateOne({ "order": order["order"] }, { $set: { status: order["status"] } })
+    } catch (err) {
+        resBody["status"] = "error";
+    }
+    res.json(resBody);
+})
+
+app.listen('3000', function () {
     console.log("server start at port 3000")
 })

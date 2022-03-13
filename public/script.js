@@ -163,4 +163,24 @@ async function pushToDatabase(event) {
         alert(err)
     }
 }
+async function changeStatus(order, status) {
+    try {
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", `/changeStatus`);
+        out = { "order": order, "status": status }
+        xhr.setRequestHeader("Accept", "application/json");
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.onload = function() {
+            var response = JSON.parse(xhr.response);
+            if (response["status"] === "success") {
+                console.log("ok");
+            } else {
+                alert("epic fail")
+            }
+        };
+        xhr.send(JSON.stringify({ out }));
+    } catch (err) {
+        alert(err)
+    }
+}
 document.getElementById('submission-form').addEventListener('submit', pushToDatabase);
