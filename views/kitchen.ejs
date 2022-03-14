@@ -1,15 +1,20 @@
 <%- include("partials/K_header") -%>
 
-    <body class="container">
-        <div class="container-fluid logo col-cs-12 col-sm-12 col-lg-12"> BLT
-            <% if(isLoggedIn){ %>
+<body class="container">
+    <div class="row container-fluid">
+        <div class="logo col-10 col-xl-10"> <h1 id="logoKitchen">BLT</h1></div>
+        <% if(isLoggedIn){ %>
+            <div class=" logo col-2 col-xl-2">
                 <button onclick="logOut()" class="button">Logout</button>
-                <h6 style="letter-spacing: normal;">Hello,
-                    <%= name %>
-                </h6>
-                <% } else { %>
+            </div>
+            <h6 style="letter-spacing: normal; color: white;">Hello, <%= name %></h6>
+            <% } else { %>
+                <div class=" logo col-2 col-xl-2">
                     <button onclick="document.getElementById('lg').style.display='block'" class="button">Login</button>
-                    <% } %>
+                </div>
+                <% } %>
+        </div>
+    </div>
 
         </div>
         <div class="Listbar" style="background-color:black;">
