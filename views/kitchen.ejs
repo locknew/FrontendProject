@@ -6,6 +6,7 @@
         <% if(isLoggedIn){ %>
             <div class=" logo col-2 col-xl-2">
                 <button onclick="logOut()" class="button">Logout</button>
+             <button onClick="window.location.reload();" class="button2 ">Refresh</button>
             </div>
             <h6 style="letter-spacing: normal; color: white;">Hello, <%= name %></h6>
             <% } else { %>
